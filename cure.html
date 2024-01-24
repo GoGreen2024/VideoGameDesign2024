@@ -4,104 +4,93 @@
     <head>
         <script src="code.js"></script>
         <link rel="stylesheet" href="cure.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Witch's Brew</title>
+        <script src="code.js"></script>
+        <link rel="stylesheet" href="cure.css">
     </head>
-    <body>
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Witch's Brew</title>
-  <script src="code.js"></script>
-  <link rel="stylesheet" href="cure.css">
-  <style>
+    <body onload="directions()">
+        <div id="gameContainer">
+          <p>0 Gold Coins</p>
 
-  </style>
-</head>
+          <div id="allIngredients">
+            <!-- Display all ingredients initially -->
+            <img id = "acid" src="img/cure/BabyAcid.png" alt="Baby Acid" class="ingredientImage" draggable="true" ondragstart="drag(event)">
+            <img id = "wing" src="img/cure/BatWings.png" alt="Bat Wings" class="ingredientImage" draggable="true" ondragstart="drag(event)">
+            <img id = "eye" src="img/cure/BirdEyes.png" alt="Bird Eyes" class="ingredientImage" draggable="true" ondragstart="drag(event)">
+            <img id = "breath" src="img/cure/CatBreath.png" alt="Cat Breath" class="ingredientImage" draggable="true" ondragstart="drag(event)">
+            <img id = "plant" src="img/cure/CorpsePlant.png" alt="Corpse Plant" class="ingredientImage" draggable="true" ondragstart="drag(event)">
+            <img id = "toes" src="img/cure/FrogToes.png" alt="Frog Toes" class="ingredientImage" draggable="true" ondragstart="drag(event)">
+            <img id = "blood" src="img/cure/SharkBlood.png" alt="Shark Blood" class="ingredientImage" draggable="true" ondragstart="drag(event)">
+          </div>
 
-<div id="gameContainer">
-  <p>0 Gold Coins</p>
-
-  <div id="allIngredients">
-    <!-- Display all ingredients initially -->
-    <img id = "acid" src="img/cure/BabyAcid.png" alt="Baby Acid" class="ingredientImage" draggable="true" ondragstart="drag(event)">
-    <img id = "wing" src="img/cure/BatWings.png" alt="Bat Wings" class="ingredientImage" draggable="true" ondragstart="drag(event)">
-    <img id = "eye" src="img/cure/BirdEyes.png" alt="Bird Eyes" class="ingredientImage" draggable="true" ondragstart="drag(event)">
-    <img id = "breath" src="img/cure/CatBreath.png" alt="Cat Breath" class="ingredientImage" draggable="true" ondragstart="drag(event)">
-    <img id = "plant" src="img/cure/CorpsePlant.png" alt="Corpse Plant" class="ingredientImage" draggable="true" ondragstart="drag(event)">
-    <img id = "toes" src="img/cure/FrogToes.png" alt="Frog Toes" class="ingredientImage" draggable="true" ondragstart="drag(event)">
-    <img id = "blood" src="img/cure/SharkBlood.png" alt="Shark Blood" class="ingredientImage" draggable="true" ondragstart="drag(event)">
-  </div>
-
-  <br>
-  <div id="orderContainer">
-    <h3>CURE</h3>
-    <p id="orderText">Cat Breath shall be added. 
-        Frog Toes are added if you add Corpse Plant. 
-        Add Shark Blood. 
-        The cure needs Bat Wings, not. 
-        It shall'nt work if Baby Acid is not not not added, not. 
-        Corpse Plant is wrong except for it's not. 
-        Don't add Bird Eyes unless you add Cat Breath.</p>
-  </div>
+          <br>
+          <div id="orderContainer">
+            <h3>CURE</h3>
+            <p id="orderText">Cat Breath shall be added. 
+                Frog Toes are added if you add Corpse Plant. 
+                Add Shark Blood. 
+                The cure needs Bat Wings, not. 
+                It shall'nt work if Baby Acid is not not not added, not. 
+                Corpse Plant is wrong except for it's not. 
+                Don't add Bird Eyes unless you add Cat Breath.</p>
+          </div>
 
 
-  <!-- Cauldron element where the player can drop ingredients -->
-  <div id="drop-area" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <img draggable="false" class="cont" src="img/cure/mixing.png" id="cauldron">
-  </div>
-</div>
+          <!-- Cauldron element where the player can drop ingredients -->
+          <div id="drop-area" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <img draggable="false" class="cont" src="img/cure/mixing.png" id="cauldron">
+          </div>
+        </div>
 
-<script>
+        <script>
 
-  const ingredients = [
-    { name: "Baby Acid", image: "img/cure/BabyAcid.png" },
-    { name: "Bat Wings", image: "img/cure/BatWings.png" },
-    { name: "Bird Eyes", image: "img/cure/BirdEyes.png" },
-    { name: "Cat Breath", image: "img/cure/CatBreath.png" },
-    { name: "Corpse Plant", image: "img/cure/CorpsePlant.png" },
-    { name: "Frog Toes", image: "img/cure/FrogToes.png" },
-    { name: "Shark Blood", image: "img/cure/SharkBlood.png" }
-  ];
+          const ingredients = [
+            { name: "Baby Acid", image: "img/cure/BabyAcid.png" },
+            { name: "Bat Wings", image: "img/cure/BatWings.png" },
+            { name: "Bird Eyes", image: "img/cure/BirdEyes.png" },
+            { name: "Cat Breath", image: "img/cure/CatBreath.png" },
+            { name: "Corpse Plant", image: "img/cure/CorpsePlant.png" },
+            { name: "Frog Toes", image: "img/cure/FrogToes.png" },
+            { name: "Shark Blood", image: "img/cure/SharkBlood.png" }
+          ];
 
-  let t = 0;
-  let formula = ['Shark Blood', 'Corpse Plant', 'Frog Toes', 'Cat Breath', 'Bird Eyes'];
-  let potion =["djfdkjsdk"];
+          let t = 0;
+          let formula = ['Shark Blood', 'Corpse Plant', 'Frog Toes', 'Cat Breath', 'Bird Eyes'];
+          let potion =["djfdkjsdk"];
 
-  // Drag and drop add here from before 
-  function allowDrop(event) {
-    event.preventDefault();
-  }
+          // Drag and drop add here from before 
+          function allowDrop(event) {
+            event.preventDefault();
+          }
 
-  function drag(event) {
-    event.dataTransfer.setData("text", event.target.alt);
-  }
+          function drag(event) {
+            event.dataTransfer.setData("text", event.target.alt);
+          }
 
-  function drop(event) {
-    if(t==0){
-      potion=[];
-      t++;
-    }
-    event.preventDefault();
-    const data = event.dataTransfer.getData("text");
-    potion.push(data);
-    console.log(potion);
+          function drop(event) {
+            if(t==0){
+              potion=[];
+              t++;
+            }
+            event.preventDefault();
+            const data = event.dataTransfer.getData("text");
+            potion.push(data);
+            console.log(potion);
 
-  }
-  function cure(){
-    correct = (formula.sort().join(',')=== potion.sort().join(','));
-    if(correct==false){
-        window.open("death.html", "_self");
-    }
-    else{
-        window.open("yay.html", "_self");
-    }
-  }
+          }
+          function cure(){
+            correct = (formula.sort().join(',')=== potion.sort().join(','));
+            if(correct==false){
+                window.open("death.html", "_self");
+            }
+            else{
+                window.open("yay.html", "_self");
+            }
+          }
 
-</script>
-  <button id="cure" onclick="cure()"><img src="img/cure.jpg" height="75" width="100"></button>
+        </script>
+          <button id="cure" onclick="cure()"><img src="img/cure.jpg" height="75" width="100"></button>
 </body>
-</html>
-
-    </body>
 </html>
