@@ -1,0 +1,113 @@
+body {
+    background-image: url('img/Cure_Making.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: 800px 600px;
+    background-position: center;
+    background-color: rgb(0, 0, 0);
+     overflow: hidden;
+}
+#gameContainer {
+    text-align: center;
+}
+
+#orderContainer {
+    width: 170px;
+    height: 290px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #a4a4a4;
+    float: right;
+    margin-right: 330px;
+    margin-top: 325px;
+}
+
+#ingredientImage {
+    cursor: grab; /* Make ingredients draggable */
+}
+
+#cauldron {
+    margin-top: 357px;
+    margin-left:150px;
+    height: 125px;
+    width: 200px;
+    position: absolute;
+}
+
+button{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-color: white;
+    border: none;
+}
+
+img{
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+#acid{
+    float: left;
+    margin-top: 60px;
+    margin-left: -275px;
+    height: 100px;
+    width: 60px;
+    position: absolute;
+}
+
+#wing{
+    margin-top: 60px;
+    margin-left: -125px;
+    height: 90px;
+    width: 100px; 
+    position: absolute;
+}
+
+#eye{
+    margin-left: 50px;
+    margin-top: 50px;
+    height: 120px;
+    width: 90px; 
+    position: absolute;
+}
+
+#breath{
+    margin-left: 225px;
+    margin-top: 60px;
+    height: 100px;
+    width: 75px;   
+    position: absolute;
+}
+
+#plant{
+    margin-left: -100px;
+    margin-top: 190px;
+    height: 100px;
+    width: 75px;   
+    position: absolute;
+}
+
+#toes{
+    margin-left: 25px;
+    margin-top: 190px;
+    height: 100px;
+    width: 60px;   
+    position: absolute;
+}
+
+#blood{
+    margin-left: 175px;
+    margin-top: 190px;
+    height: 110px;
+    width: 90px;  
+    position: absolute; 
+}
+
+#cure{
+    margin-top: 545px;
+    margin-left: 320px;
+    position:fixed;
+}
+

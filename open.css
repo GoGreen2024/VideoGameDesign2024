@@ -1,0 +1,10 @@
+body {
+    background-image: url('img/Start.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: 800px 600px;
+    padding-top: 525px;
+    padding-left: 875px;
+    background-position: center;
+    background-color: rgb(0, 0, 0);
+}

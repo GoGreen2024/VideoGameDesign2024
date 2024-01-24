@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Witch's Brew</title>
+  <script src="code.js"></script>
+  <link rel="stylesheet" href="storeFront.css">
+  <style>
+
+  </style>
+</head>
+<body onload="generatePotionOrder()" style="background-image: url('img/main.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: 800px 600px; background-position: center; background-color: black; overflow: hidden;">
+
+<div id="gameContainer">
+
+  <div id="allIngredients">
+    <!-- Display all ingredients initially -->
+    <img id = "eye" src="img/eyecont.png" alt="Eyes of Newt" class="ingredientImage" draggable="true" ondragstart="drag(event)">
+    <img id = "booger" src="img/snotcont.png" alt="Troll Booger" class="ingredientImage" draggable="true" ondragstart="drag(event)">
+    <img id = "dust" src="img/dustcont.png" alt="Pixie Dust" class="ingredientImage" draggable="true" ondragstart="drag(event)">
+    <img id = "tears" src="img/tearscont.png" alt="Vampire Tears" class="ingredientImage" draggable="true" ondragstart="drag(event)">
+    <img id = "horn" src="img/horncont.png" alt="Unicorn Horns" class="ingredientImage" draggable="true" ondragstart="drag(event)">
+  </div>
+
+  <br>
+  <div id="orderContainer">
+    <h2>Potion Order:</h2>
+    <p id="orderText"></p>
+  </div>
+  <p><span id="currency">0 Gold Coins</span></p>
+
+
+  <!-- Cauldron element where the player can drop ingredients -->
+  <div id="drop-area" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <img draggable="false" class="cont" src="img/pot.png" id="cauldron">
+  </div>
+</div>
+
+<script>
+
+  const ingredients = [
+    { name: "Unicorn Horns", image: "img/horn.png" },
+    { name: "Eyes of Newt", image: "img/eye.png" },
+    { name: "Troll Booger", image: "img/snot.png" },
+    { name: "Pixie Dust", image: "img/dust.png" },
+    { name: "Vampire Tears", image: "img/tears.png" }
+  ];
+
+  let currency = 0;
+  let currentOrder = [];
+  let questionsLeft = 4;
+
+  function generatePotionOrder() {
+    // Generate a new potion order without repeat
+    currentOrder = generateUniqueOrder();
+    displayOrder(currentOrder);
+  }
+
+  function displayOrder(ingredients) {
+    const orderContainer = document.getElementById("orderText");
+    orderContainer.textContent = `${ingredients.map(ingredient => ingredient.name).join(', ')}`;
+  }
+
+  function generateUniqueOrder() {
+    const uniqueOrder = [];
+
+    while (uniqueOrder.length < 3) {
+      const randomIngredient = ingredients[Math.floor(Math.random() * ingredients.length)];
+      // Check if the ingredient is not already in the order
+      if (!uniqueOrder.some(ingredient => ingredient.name === randomIngredient.name)) {
+        uniqueOrder.push({ ...randomIngredient, image: null });
+      }
+    }
+
+    return uniqueOrder;
+  }
+
+  // Drag and drop add here from before
+  function allowDrop(event) {
+    event.preventDefault();
+  }
+
+  function drag(event) {
+    event.dataTransfer.setData("text", event.target.alt);
+  }
+
+  function drop(event) {
+    event.preventDefault();
+    const data = event.dataTransfer.getData("text");
+
+    // Check if ingredient matches order
+    const matchingIngredient = currentOrder.find(orderIngredient => orderIngredient.name === data);
+
+    if (matchingIngredient) {
+      // Add dropped ingredient to list of ingredients for order
+      matchingIngredient.image = `${data}.jpg`;
+
+      // Check all ingredients for order
+      const isOrderComplete = currentOrder.every(orderIngredient => orderIngredient.image);
+
+      if (isOrderComplete) {
+        currency += 500;
+        document.getElementById("currency").textContent = currency+" Gold Coins";
+
+        // Display 
+        alert("Potion order complete! +10!");
+
+        // clear cauldron
+        setTimeout(() => {
+          cauldron.innerHTML = "";
+          // new order
+          generatePotionOrder();
+        }, 10); // Delay clear cauldron (2 sec)
+      }
+    } else {
+      // wrong
+      alert("Incorrect ingredient. Try again!");
+    }
+  }
+  function spend(){
+      if(questionsLeft==0&&currency>=100){
+        window.open("cure.html", "_self");
+      }
+      else if(currency-100 < 0){
+        alert("You don't have enough money!");
+      }
+      else{
+        currency -= 100;
+        document.getElementById("currency").textContent = currency+" Gold Coins";
+        if(questionsLeft==4){
+          window.open("riddlers/blue.html", "_blank");
+          questionsLeft--;
+        }
+        else if(questionsLeft==3){
+          window.open("riddlers/green.html", "_blank");
+          questionsLeft--;
+        }
+        else if(questionsLeft==2){
+          window.open("riddlers/red.html", "_blank");
+          questionsLeft--;
+        }
+        else if(questionsLeft==1){
+          window.open("riddlers/pink.html", "_blank");
+          questionsLeft--;
+        } 
+      }
+  }
+</script>
+  <button draggable="false" id="quest" onclick="spend()"><img draggable="false" src="img/quests.jpg" height="75px" width="100"></button>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>riddlers</title>
+        <style>
+            .container  {
+                width: 800px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="bg" style="object-fit: cover; position: relative; ">
+            <img draggable="false" src="Green_Witch.png">
+        </div>
+
+        <div class="container" style="width: 600px; height: 190px">
+            <p id="demo" style="font-size: 30px; color:#BBC79C; font-family:'Courier New', Courier, monospace; z-index: 2; object-fit: cover; position: relative; top: -220px; left: 100px;"></p>
+        </div>
+
+        <script>
+            var i = 0;
+            var txt = 'Forward I am heavy, but backward I am not. What am I?'; /* The text */
+            var speed = 50; /* The speed/duration of the effect in milliseconds */
+
+            function typeWriter() {
+                if (i < txt.length) {
+                    document.getElementById("demo").innerHTML += txt.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+                else {
+                    showPrompt();
+                }
+            }
+
+            function showPrompt() {
+                var userInput = prompt("What is your answer?").toLowerCase();
+                if (userInput == 'ton' || userInput == 'a ton') {
+                    alert("correct");
+                    window.close();
+                } else {
+                    alert("incorrect");
+                }
+            }     
+
+            typeWriter();
+        </script>
+    </body>
+</html>

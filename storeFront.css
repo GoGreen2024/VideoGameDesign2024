@@ -1,0 +1,84 @@
+#gameContainer {
+    text-align: center;
+}
+
+#orderContainer {
+    position:fixed;
+    width: 150px;
+    padding: 10px;
+    background-color: #a4a4a4;
+    margin-top: 375px;
+    margin-left: 925px;
+}
+
+#ingredientImage {
+    cursor: grab; /* Make ingredients draggable */
+}
+
+#cauldron {
+    position: fixed;
+    margin-top: 380px;
+    margin-left: -100px;
+    height: 125px;
+    width: 200px;
+}
+
+button{
+    position: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-color: white;
+    height: 75px;
+    width: 100px;
+    margin-top: 545px;
+    margin-left: 315px;
+    border: none;
+}
+
+#eye{
+    position: fixed;
+    float: left;
+    margin-top: 100px;
+    margin-left: -255px;
+    height: 120px;
+    width: 100px;
+}
+
+#booger{
+    position: fixed;
+    float: left;
+    margin-top: 100px;
+    margin-left: -50px;
+    height: 120px;
+    width: 100px;
+}
+
+#dust{
+    position: fixed;
+    margin-top: 90px;
+    margin-left: 150px;
+    height: 120px;
+    width: 140px;
+}
+
+#tears{
+    position: fixed;
+    float: right;
+    margin-top: 265px;
+    margin-left: -85px;
+}
+
+#horn{
+    position: fixed;
+    margin-left: 200px;
+    margin-top: 243px;
+    height:90px;
+}
+
+#currency{
+    position: fixed;
+    float: right;
+    margin-top: 600px;
+    margin-left: 275px;
+}
