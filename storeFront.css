@@ -1,9 +1,13 @@
+.body{
+    min-height: 100vh;
+}
+
 #gameContainer {
     text-align: center;
 } 
 
 #orderContainer {
-    position:fixed;
+    position: absolute;
     width: 150px;
     padding: 10px;
     background-color: #a4a4a4;
@@ -16,7 +20,7 @@
 }
 
 #cauldron {
-    position: fixed;
+    position: absolute;
     margin-top: 380px;
     margin-left: -100px;
     height: 125px;
@@ -24,7 +28,7 @@
 }
 
 button{
-    position: fixed;
+    position: absolute;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed; 
@@ -37,7 +41,7 @@ button{
 }
 
 #eye{
-    position: fixed;
+    position: absolute;
     float: left;
     margin-top: 100px;
     margin-left: -255px;
@@ -46,7 +50,7 @@ button{
 }
 
 #booger{
-    position: fixed;
+    position: absolute;
     float: left;
     margin-top: 100px;
     margin-left: -50px;
@@ -55,7 +59,7 @@ button{
 }
 
 #dust{
-    position: fixed;
+    position: absolute;
     margin-top: 90px;
     margin-left: 150px;
     height: 120px;
@@ -63,21 +67,21 @@ button{
 }
 
 #tears{
-    position: fixed;
+    position: absolute;
     float: right;
     margin-top: 265px;
     margin-left: -85px;
 }
 
 #horn{
-    position: fixed;
+    position: absolute;
     margin-left: 200px;
     margin-top: 243px;
     height:90px;
 }
 
 #currency{
-    position: fixed;
+    position: absolute;
     float: right;
     margin-top: 600px;
     margin-left: 275px;
