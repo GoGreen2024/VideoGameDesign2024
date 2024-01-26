@@ -31,6 +31,7 @@ function yay(){
 }
 
 function instructions(){
+    alert("This game is best played on a computer with: 2560-by-1600 native resolution at 227 pixels per inch");
     alert("The beloved queen has fallen ill. Brew potions to earn money to go on quests (Witch's Hat Button). Each quest costs 100 Gold Coins. On each quest, you will solve a riddle that will bring you colser to eventually unlocking the cure room that contains the ingredients and instructions to cure the queen. Good Luck!");
 }
 
