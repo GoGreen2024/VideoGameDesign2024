@@ -70,7 +70,7 @@ button{
 #tears{
     position: absolute;
     float: right;
-    top: 175px;
+    top: 176px;
     left: 315px;
 }
 
@@ -84,6 +84,6 @@ button{
 #currency{
     position: absolute;
     float: right;
-    top: 600px;
-    left: 275px;
+    top: 550px;
+    left: 650px;
 }
