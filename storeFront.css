@@ -1,5 +1,6 @@
 .body{
     min-height: 100vh;
+    min-width: 100rem;
 }
 
 #gameContainer {
@@ -11,8 +12,8 @@
     width: 150px;
     padding: 10px;
     background-color: #a4a4a4;
-    margin-top: 375px;
-    margin-left: 925px;
+    top: 325px;
+    left: 600px;
 }
 
 #ingredientImage {
@@ -21,8 +22,8 @@
 
 #cauldron {
     position: absolute;
-    margin-top: 380px;
-    margin-left: -100px;
+    top: 330px;
+    left: 300px;
     height: 125px;
     width: 200px;
 }
@@ -35,16 +36,16 @@ button{
     background-color: white;
     height: 75px;
     width: 100px;
-    margin-top: 545px;
-    margin-left: 315px;
+    top: 523px;
+    left: 0px;
     border: none;
 }
 
 #eye{
     position: absolute;
     float: left;
-    margin-top: 100px;
-    margin-left: -255px;
+    top: 15px;
+    left: 150px;
     height: 120px;
     width: 100px;
 }
@@ -52,16 +53,16 @@ button{
 #booger{
     position: absolute;
     float: left;
-    margin-top: 100px;
-    margin-left: -50px;
+    top: 15px;
+    left: 350px;
     height: 120px;
     width: 100px;
 }
 
 #dust{
     position: absolute;
-    margin-top: 90px;
-    margin-left: 150px;
+    top: 10px;
+    left: 565px;
     height: 120px;
     width: 140px;
 }
@@ -69,20 +70,20 @@ button{
 #tears{
     position: absolute;
     float: right;
-    margin-top: 265px;
-    margin-left: -85px;
+    top: 175px;
+    left: 315px;
 }
 
 #horn{
     position: absolute;
-    margin-left: 200px;
-    margin-top: 243px;
+    left: 600px;
+    top: 150px;
     height:90px;
 }
 
 #currency{
     position: absolute;
     float: right;
-    margin-top: 600px;
-    margin-left: 275px;
+    top: 600px;
+    left: 275px;
 }
